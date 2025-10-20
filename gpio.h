@@ -13,27 +13,27 @@
 
 #include "stm32f10x.h"
 
-// LED引脚定义 (假设使用STM32F103C8T6开发板)
-#define LED0_GPIO_PORT    GPIOC
-#define LED0_GPIO_PIN     GPIO_Pin_13
-#define LED0_GPIO_CLK     RCC_APB2Periph_GPIOC
+// LED引脚定义
+#define LED0_GPIO_PORT    GPIOB
+#define LED0_GPIO_PIN     GPIO_Pin_5
+#define LED0_GPIO_CLK     RCC_APB2Periph_GPIOB
 
-#define LED1_GPIO_PORT    GPIOC
-#define LED1_GPIO_PIN     GPIO_Pin_14
-#define LED1_GPIO_CLK     RCC_APB2Periph_GPIOC
+#define LED1_GPIO_PORT    GPIOE
+#define LED1_GPIO_PIN     GPIO_Pin_5
+#define LED1_GPIO_CLK     RCC_APB2Periph_GPIOE
 
 // 按键引脚定义
-#define KEY0_GPIO_PORT    GPIOA
-#define KEY0_GPIO_PIN     GPIO_Pin_0
-#define KEY0_GPIO_CLK     RCC_APB2Periph_GPIOA
+#define KEY0_GPIO_PORT    GPIOE
+#define KEY0_GPIO_PIN     GPIO_Pin_4
+#define KEY0_GPIO_CLK     RCC_APB2Periph_GPIOE
 
-#define KEY1_GPIO_PORT    GPIOA
-#define KEY1_GPIO_PIN     GPIO_Pin_1
-#define KEY1_GPIO_CLK     RCC_APB2Periph_GPIOA
+#define KEY1_GPIO_PORT    GPIOE
+#define KEY1_GPIO_PIN     GPIO_Pin_3
+#define KEY1_GPIO_CLK     RCC_APB2Periph_GPIOE
 
-#define KEY2_GPIO_PORT    GPIOA
+#define KEY2_GPIO_PORT    GPIOE
 #define KEY2_GPIO_PIN     GPIO_Pin_2
-#define KEY2_GPIO_CLK     RCC_APB2Periph_GPIOA
+#define KEY2_GPIO_CLK     RCC_APB2Periph_GPIOE
 
 // LED控制宏定义
 #define LED0_ON()         GPIO_ResetBits(LED0_GPIO_PORT, LED0_GPIO_PIN)

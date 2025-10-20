@@ -33,13 +33,13 @@ void LED_GPIO_Config(void)
     // 使能GPIO时钟
     RCC_APB2PeriphClockCmd(LED0_GPIO_CLK | LED1_GPIO_CLK, ENABLE);
     
-    // 配置LED0引脚
+    // 配置LED0引脚 (PB5)
     GPIO_InitStructure.GPIO_Pin = LED0_GPIO_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;        // 推挽输出
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;       // 输出速度50MHz
     GPIO_Init(LED0_GPIO_PORT, &GPIO_InitStructure);
     
-    // 配置LED1引脚
+    // 配置LED1引脚 (PE5)
     GPIO_InitStructure.GPIO_Pin = LED1_GPIO_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
@@ -59,22 +59,22 @@ void KEY_GPIO_Config(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
     
-    // 使能GPIO时钟
-    RCC_APB2PeriphClockCmd(KEY0_GPIO_CLK | KEY1_GPIO_CLK | KEY2_GPIO_CLK, ENABLE);
+    // 使能GPIO时钟 (所有按键都在GPIOE上，只需使能一次)
+    RCC_APB2PeriphClockCmd(KEY0_GPIO_CLK, ENABLE);
     
-    // 配置KEY0引脚
+    // 配置KEY0引脚 (PE4)
     GPIO_InitStructure.GPIO_Pin = KEY0_GPIO_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;           // 上拉输入
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(KEY0_GPIO_PORT, &GPIO_InitStructure);
     
-    // 配置KEY1引脚
+    // 配置KEY1引脚 (PE3)
     GPIO_InitStructure.GPIO_Pin = KEY1_GPIO_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(KEY1_GPIO_PORT, &GPIO_InitStructure);
     
-    // 配置KEY2引脚
+    // 配置KEY2引脚 (PE2)
     GPIO_InitStructure.GPIO_Pin = KEY2_GPIO_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
