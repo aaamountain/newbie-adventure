@@ -120,14 +120,14 @@ void LED_Control(LED_Mode_t mode)
     switch(mode)
     {
         case LED_MODE_0:
-            GPIO_SetBits(GPIOC, GPIO_Pin_13);   // LED0点亮 (假设LED0连接PC13，低电平点亮)
-            GPIO_ResetBits(GPIOC, GPIO_Pin_14); // LED1熄灭 (假设LED1连接PC14)
+            LED0_ON();   // LED0点亮
+            LED1_OFF();  // LED1熄灭
             current_led_mode = LED_MODE_0;
             break;
             
         case LED_MODE_1:
-            GPIO_ResetBits(GPIOC, GPIO_Pin_13); // LED0熄灭
-            GPIO_SetBits(GPIOC, GPIO_Pin_14);   // LED1点亮
+            LED0_OFF();  // LED0熄灭
+            LED1_ON();   // LED1点亮
             current_led_mode = LED_MODE_1;
             break;
             
@@ -147,7 +147,7 @@ void Key_Scan(void)
     static uint32_t key0_count = 0, key1_count = 0, key2_count = 0;
     
     // KEY0扫描 (假设连接PA0，按下为低电平)
-    if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0) == 0)
+    if(KEY0_READ() == 0)
     {
         if(key0_state == 1)
         {
@@ -167,7 +167,7 @@ void Key_Scan(void)
     }
     
     // KEY1扫描 (假设连接PA1)
-    if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) == 0)
+    if(KEY1_READ() == 0)
     {
         if(key1_state == 1)
         {
@@ -187,7 +187,7 @@ void Key_Scan(void)
     }
     
     // KEY2扫描 (假设连接PA2)
-    if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2) == 0)
+    if(KEY2_READ() == 0)
     {
         if(key2_state == 1)
         {
