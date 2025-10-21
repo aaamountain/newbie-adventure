@@ -30,8 +30,7 @@ void INTX_ENABLE(void)
 }
 //设置栈顶地址
 //addr:栈顶地址
-__asm void MSR_MSP(u32 addr) 
+void MSR_MSP(u32 addr) 
 {
-    MSR MSP, r0 			//set Main Stack value
-    BX r14
+    __ASM volatile("MSR MSP, %0" : : "r" (addr) : "memory");
 }

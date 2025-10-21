@@ -5,7 +5,7 @@
 PROJECT = led_control_system
 
 # 源文件
-SOURCES = main.c led.c key.c delay.c sys.c usart.c
+SOURCES = main.c led.c key.c delay.c sys.c usart.c stm32f10x_lib.c
 
 # 头文件目录
 INCLUDES = -I.
